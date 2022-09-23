@@ -1,4 +1,5 @@
-/* .card__container {
+.todo--list__container {
+    padding: 2px;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -11,6 +12,8 @@
     padding: 2% 2% 3% 3%;
 }
 
+
+/*
 .card__container:hover {
     border: 1px solid lightgrey;
 }
@@ -20,7 +23,8 @@
     font-weight: 100;
 } */
 
-.todo--list__container {
+
+/* .todo--list__container {
     height: fit-content;
     position: absolute;
     top: 50%;
@@ -30,4 +34,4 @@
     width: 400px;
     background-color: white;
     border: 1px solid black;
-}
+} */
