@@ -1,0 +1,21 @@
+/*import*/
+
+@import url("card-list.styles.css");
+@import url("card.styles.css");
+
+/*reset css*/
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+HTML {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    padding: 2%;
+    margin: 5%;
+}
