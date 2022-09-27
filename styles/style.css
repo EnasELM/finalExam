@@ -2,12 +2,17 @@
 
 @import url("card-list.styles.css");
 @import url("card.styles.css");
+@import url("searc-form.styles.css");
 
 /*reset css*/
 
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    padding: 5px;
 }
 
 nav {
@@ -22,5 +27,34 @@ HTML {
 body {
     font-size: 1.6rem;
     padding: 2%;
-    margin: 5%;
+    margin: auto;
+    width: 50%;
+}
+
+article {
+    margin: 1%;
+    background-color: beige;
+    padding: 2%;
+    text-align: center;
+}
+
+input {
+    border: beige;
+    padding: 12px 16px;
+    height: 100%;
+    ;
+}
+
+.btn,
+.toggle__button {
+    background-color: rgb(184, 81, 81);
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.toggle__button {
+    background-color: rgb(0, 145, 255);
 }
