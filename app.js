@@ -3,8 +3,6 @@ const getTodosAPI = `http://localhost:3000/todos`
 const searchForm = document.querySelector('.search--form')
 const inputField = document.querySelector('.search--form__input')
 const todoContainer = document.querySelector('.todo--list__container')
-    // const todoUpdate = document.querySelector('.todo--list__Update')
-    // const todoUpdat = document.querySelector('.todo--list__up')
 const buttonSubmit = document.querySelector('.search--form__submit')
 buttonSubmit.onClick = addNewTodo()
 
@@ -29,11 +27,12 @@ function renderTodos(todos) {
         .map((todo) => {
             console.log(todo.title, 'todo.title loop')
             return `<article class="todo">
-            <input id='todo__title' name='todo__title'   disabled value=${todo.title} innerHTML=${todo.title}> 
+            <input id='todo__title' name='todo__title'   disabled value=${todo.title} innerHTML=${todo.title} maxlength='100'> 
             <button onclick="formUpdateTodos(${todo.id})" class="toggle__button"> <i class='fa fa-edit'></i></button>
         <button onclick="handleDelete(${todo.id})" class="btn"><i class="fa fa-trash"></i></button>
        
     </article>`
+
         })
         .join('')
 
@@ -85,11 +84,11 @@ function formUpdateTodos(id) {
     })
     const val = document.querySelector(`input[value=${state.todos[index].title}]`)
     if (state.todos[index].completed !== true) {
-        console.log('if')
         val.style.display = "inline"
         val.type = "text";
         val.disabled = false
         state.todos[index].completed = true
+
     } else {
         fetch(getTodosAPI + "/" + id, {
                 method: 'PUT',
@@ -102,49 +101,12 @@ function formUpdateTodos(id) {
             .then((data) => {
                 state.todos[index].completed = false
                 state.todos[index].title = `${data.title}`
-                val.innerHTML = `${data.title}`
-
                 renderTodos(state.todos)
             })
     }
 
 }
-// function formUpdateTodos(id) {
-//     const index = state.todos.findIndex((object) => {
-//         return object.id === id
-//     })
-//     const val = document.querySelector(`input[value=${state.todos[index].title}]`)
-//     val.value = state.todos[index].title
-//         // const val1 = document.querySelector(`label[value=${state.todos[index].title}]`)
-//         // const val = document.querySelector(`input[htmlFor.value=${state.todos[index].title}]`)
-//     console.log(val, 'val')
-//     if (state.todos[index].completed !== true) {
-//         val.style.display = "inline"
-//             // var y = document.getElementById("todo__title");
-//         val.type = "text";
-//         // console.log(document.getElementById("todo__title").innerHTML = state.todos[index].title, 'kkk')
-//         // let x = (document.getElementById("todo__title").innerHTML = state.todos[index].title)
-//         // console.log(x)
-//         val.disabled = false
-//             // (document.getElementById("todo__title").innerHTML = state.todos[index].title).disabled = false
 
-
-//         state.todos[index].completed = true
-//     } else {
-//         fetch(getTodosAPI + "/" + id, {
-//                 method: 'PUT',
-//                 headers: {
-//                     'Content-Type': 'application/json',
-//                 },
-//                 body: JSON.stringify({ title: val.value, completed: false }),
-//             })
-//             .then((res) => res.json())
-//             .then((data) => {
-//                 state.todos[index].title = `${data.title}`
-//                 renderTodos(state.todos)
-//             })
-//     }
-// }
 // DELETE TODO
 
 function handleDelete(id) {
